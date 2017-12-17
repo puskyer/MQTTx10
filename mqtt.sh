@@ -49,11 +49,12 @@ case "$1" in
     log_daemon_msg "Stopping $DESC" "$NAME"
 #    sudo kill  `cat /var/run/mqtt/mymqtt.pid`
     sudo kill  `pidof -cx mosquitto_sub`
-    sudo kill  `pidof -cx /usr/local/bin//mymqtt.sh`
+    sudo kill  `pidof -cx /usr/local/bin/mymqtt.sh`
 
     ;;
 
   restart)
+    $0 stop
     $0 start
     ;;
 
